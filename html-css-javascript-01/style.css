@@ -1,0 +1,15 @@
+body {
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2vh;
+}
+
+.wrap-style {
+  padding: 10px;
+  color: grey;
+  background: white;
+}
