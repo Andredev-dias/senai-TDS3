@@ -6,16 +6,29 @@ function somar() {
   if (!isNaN(num1) && !isNaN(num2)) {
     var resultado = num1 + num2;
     document.getElementById("resultado").textContent = resultado;
-    show();
+    show(resultado);
+    // if (resultado > 5) {
+    //   show();
+    // } else {
+    //   var divVermelha = document.getElementById("show-div");
+    //   divVermelha.style.display = "block";
+    //   divVermelha.style.background = "red";
+    // }
   } else {
     alert("Por favor, insira números válidos.");
   }
 }
 
-function show() {
+function show(resultado) {
   var divResultado = document.getElementById("show-div");
+  // divResultado.textContent = "Resultado: " + resultado;
+  if (resultado > 5) {
+    divResultado.style.background = "green";
+  } else {
+    divResultado.style.background = "red";
+  }
+
   divResultado.style.display = "block";
-  divResultado.style.background = "green";
 }
 
 function limpar() {
