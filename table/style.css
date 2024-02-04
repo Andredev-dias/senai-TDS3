@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.tabelinha {
+  background: lightgrey;
+  width: 100%;
+  color: black;
+}
+
+#tabela {
+  background: black;
+  color: white;
+  width: 100%;
+  text-align: left;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-self: left;
+  gap: 10px;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+}
+
+h1 {
+  width: 100%;
+  text-align: left;
+}
+
+input {
+  background: lightgrey;
+  border: none;
+  height: 30px;
+  width: 270px;
+  min-width: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 0.5vh;
+}
+
+input:focus {
+  color: green;
+  font-size: 1.2rem;
+}
+
+button {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: green;
+  color: white;
+}
+
+button:hover {
+  background: lightgreen;
+  border: 1px solid black;
+  cursor: pointer;
+  color: black;
+}
+
+.rowItems {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.rowItemsBottom {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.redBtn {
+  background: red;
+}
+
+.redBtn:hover {
+  background: lightpink;
+}
+
+@media screen and (max-width: 800px) {
+  input {
+    width: 100%;
+    min-width: 100%;
+  }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    align-self: center;
+    gap: 0px;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+  }
+}
