@@ -96,3 +96,28 @@ function removerItem() {
 
   alert("Nome não encontrado na tabela.");
 }
+
+function calcularTotal() {
+  var tabela = document
+    .getElementById("tabela")
+    .getElementsByTagName("tbody")[0];
+  var linhas = tabela.getElementsByTagName("tr");
+  var total = 0;
+
+  // Iterar sobre todas as linhas da tabela
+  for (var i = 0; i < linhas.length; i++) {
+    var celulaValor = linhas[i].getElementsByTagName("td")[1];
+    var celulaQuantidade = linhas[i].getElementsByTagName("td")[2];
+
+    // Obter os valores das células de valor e quantidade
+    var valor = parseFloat(celulaValor.innerHTML);
+    var quantidade = parseInt(celulaQuantidade.innerHTML);
+
+    // Calcular o total da linha e somar ao total geral
+    total += valor * quantidade;
+    // total = total + valor * quantidade;
+  }
+
+  // Exibir o total na caixa de texto
+  document.getElementById("total").value = total.toFixed(2);
+}

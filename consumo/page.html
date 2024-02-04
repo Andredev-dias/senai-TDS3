@@ -18,6 +18,10 @@
         width: 200px;
         text-align: center;
         border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       }
       h3 {
         border-bottom: 1px solid black;
@@ -34,9 +38,18 @@
     </style>
   </head>
   <body>
-    <label for="pageInput">Digite a página(1/42):</label>
-    <input type="text" id="pageInput" />
-    <button onclick="fetchCharacters()">Buscar</button>
+    <div>
+      <label for="pageInput">Digite a página(1/42):</label>
+      <input type="text" id="pageInput" />
+      <button onclick="fetchCharacters()">Buscar</button>
+    </div>
+    <br />
+    <div>
+      <label for="nameInput">Buscar por Nome:</label>
+      <input type="text" id="nameInput" />
+      <button onclick="searchByName()">Buscar por Nome</button>
+    </div>
+    <!-- Adicione os novos elementos para busca por nome -->
 
     <div id="container"></div>
 
@@ -65,7 +78,7 @@
           const name = document.createElement("h3");
           name.textContent = character.name;
           name.style.color = "lightgrey";
-          name.style.fontSize = "40px";
+          name.style.fontSize = "30px";
 
           const species = document.createElement("p");
           species.textContent = `Species: ${character.species}`;
@@ -80,6 +93,24 @@
           card.appendChild(image);
 
           container.appendChild(card);
+        });
+      }
+
+      function searchByName() {
+        const searchTerm = document
+          .getElementById("nameInput")
+          .value.toLowerCase();
+        const characters = document.querySelectorAll(".card");
+
+        characters.forEach((character) => {
+          const characterName = character
+            .querySelector("h3")
+            .textContent.toLowerCase();
+          if (characterName.includes(searchTerm)) {
+            character.style.display = "block";
+          } else {
+            character.style.display = "none";
+          }
         });
       }
     </script>
