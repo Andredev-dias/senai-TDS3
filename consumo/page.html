@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty Characters</title>
+    <style>
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        border: 1px solid #253b4e;
+        margin: 10px;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+        border-radius: 15px;
+      }
+      h3 {
+        border-bottom: 1px solid black;
+      }
+      .card img {
+        border-radius: 50%;
+        transition: all linear 200ms;
+      }
+      .card img:hover {
+        border-radius: 15px;
+        transition: all linear 200ms;
+        cursor: crosshair;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="pageInput">Digite a página(1/42):</label>
+    <input type="text" id="pageInput" />
+    <button onclick="fetchCharacters()">Buscar</button>
+
+    <div id="container"></div>
+
+    <script>
+      async function fetchCharacters() {
+        const page = document.getElementById("pageInput").value || 1;
+        const apiUrl = `https://rickandmortyapi.com/api/character/?page=${page}`;
+
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          displayCharacters(data.results);
+        } catch (error) {
+          console.error("Erro ao buscar personagens:", error);
+        }
+      }
+
+      function displayCharacters(characters) {
+        const container = document.getElementById("container");
+        container.innerHTML = "";
+
+        characters.forEach((character) => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const name = document.createElement("h3");
+          name.textContent = character.name;
+          name.style.color = "lightgrey";
+          name.style.fontSize = "40px";
+
+          const species = document.createElement("p");
+          species.textContent = `Species: ${character.species}`;
+
+          const image = document.createElement("img");
+          image.src = character.image;
+          image.style.width = "200px";
+          image.alt = character.name;
+
+          card.appendChild(name);
+          card.appendChild(species);
+          card.appendChild(image);
+
+          container.appendChild(card);
+        });
+      }
+    </script>
+  </body>
+</html>
