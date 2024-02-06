@@ -5,8 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abrir WhatsApp</title>
+    <style>
+      .rel {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        border: 10px solid black;
+        border-radius: 5px;
+      }
+      img {
+        /* transform: translateX(-200px); */
+        position: absolute;
+        width: auto;
+        height: 500px;
+        transition: all 800ms linear;
+      }
+      img:hover {
+        transform: scale(1.2);
+        transition: all 800ms linear;
+      }
+    </style>
   </head>
   <body>
+    <div class="rel">
+      <img
+        src="https://static-cse.canva.com/blob/1173240/screen3.jpg"
+        alt="Descrição da Imagem"
+      />
+    </div>
+
     <label for="nome">Seu nome para contato:</label>
     <input type="text" id="nome" />
 
