@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abrir WhatsApp</title>
+  </head>
+  <body>
+    <label for="nome">Seu nome para contato:</label>
+    <input type="text" id="nome" />
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea type="text" id="mensagem"></textarea>
+
+    <button onclick="enviarMensagemWhatsApp()">Enviar Mensagem</button>
+
+    <script>
+      function enviarMensagemWhatsApp() {
+        var nome = document.getElementById("nome").value;
+        var mensagem = document.getElementById("mensagem").value;
+
+        var numeroTelefone = "5541999999999";
+
+        var linkWhatsApp =
+          "https://wa.me/" +
+          numeroTelefone +
+          "?text=NOME: " +
+          nome +
+          " - " +
+          mensagem;
+
+        window.open(linkWhatsApp, "_blank");
+      }
+    </script>
+  </body>
+</html>
