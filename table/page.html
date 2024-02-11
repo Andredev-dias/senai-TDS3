@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
   </head>
   <body>
     <h1>Tabela de Produtos</h1>
@@ -46,6 +47,10 @@
       <button onclick="calcularTotal()">=</button>
       <p>VALOR TOTAL DA MERCADORIA (R$):</p>
       <input type="text" id="total" readonly />
+    </div>
+    <div class="rowItemsBottomExecel">
+      <button onclick="exportarParaExcel()">Excel</button>
+      <p>EXPORTAR</p>
     </div>
   </body>
 </html>

@@ -121,3 +121,10 @@ function calcularTotal() {
   // Exibir o total na caixa de texto
   document.getElementById("total").value = total.toFixed(2);
 }
+
+function exportarParaExcel() {
+  var tabela = document.getElementById("tabela");
+  var nomeArquivo = "tabela_produtos.xlsx";
+  var wb = XLSX.utils.table_to_book(tabela, { sheet: "Tabela de Produtos" });
+  XLSX.writeFile(wb, nomeArquivo);
+}
